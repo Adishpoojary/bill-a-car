@@ -21,7 +21,7 @@ function parkCar() {
                 processParking();
             }).catch(err => {
                 console.error("Error with OCR: " + err);
-                alert('Error reading number plate from image.');
+                alert('Error reading number plate from image. Please ensure the image is clear and try again.');
             });
         }
     };
@@ -63,7 +63,7 @@ function leaveCar() {
                 processLeaving(leaveNumberPlate);
             }).catch(err => {
                 console.error("Error with OCR: " + err);
-                alert('Error reading number plate from image.');
+                alert('Error reading number plate from image. Please ensure the image is clear and try again.');
             });
         }
     };
@@ -98,6 +98,7 @@ function processLeaving(leaveNumberPlate) {
 
     startQrScanner();
 }
+
 function startQrScanner() {
     const html5QrCode = new Html5Qrcode("qr-reader");
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
